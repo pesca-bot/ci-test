@@ -28,4 +28,4 @@ DESCRIBE=`git describe --tags --always`
 
 # echo ${VERSION}+build.${BUILD}.${PATCH}
 echo $DESCRIBE
-echo $DESCRIBE | egrep -o '[0-9].[0-9].[0-9]'
+echo $DESCRIBE | grep -o '[0-9].[0-9].[0-9]'
