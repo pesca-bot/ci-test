@@ -11,8 +11,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Set env
         run: |
-          # VERSION=$(echo ${GITHUB_REF#refs/*/} | grep -o '[0-9].[0-9].[0-9]')
-          # echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
+          VERSION=$(echo ${GITHUB_REF#refs/*/} | grep -o '[0-9].[0-9].[0-9]')
+          echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
       - name: Test
         run: |
           echo $RELEASE_VERSION
