@@ -6,7 +6,7 @@ on:
       - 'v*.*.*-beta*'
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
       - name: Set env
