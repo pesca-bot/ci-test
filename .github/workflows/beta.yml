@@ -14,6 +14,9 @@ jobs:
           VERSION=$(echo ${GITHUB_REF#refs/*/} | grep -o '[0-9].[0-9].[0-9]')
           echo "RELEASE_VERSION=$VERSION" >> $GITHUB_ENV
       - name: Test
+        env:
+          TEST_SECRET: ${{ secrets.TEST_SECRET }}
         run: |
+          echo $TEST_SECRET
           echo $RELEASE_VERSION
           echo ${{ env.RELEASE_VERSION }}
