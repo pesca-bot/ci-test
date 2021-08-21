@@ -10,7 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set env
-        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" | egrep -o '[0-9].[0-9].[0-9]' >> $GITHUB_ENV
+        run: |
+          VERSION=$(echo ${GITHUB_REF#refs/*/} | egrep -o '[0-9].[0-9].[0-9]'')
+          echo "RELEASE_VERSION=$VERSION >> $GITHUB_ENV
       - name: Test
         run: |
           echo $RELEASE_VERSION
